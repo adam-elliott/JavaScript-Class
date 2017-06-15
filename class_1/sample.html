@@ -10,13 +10,39 @@
 
  </div>
  <script>
-   echo("Hello World!");
-   console.log("Foo, bar.");
-			console.log(16 / 2 * (5 + 3));
-			console.log("This is a string " + "concatenation");
-			console.log("In JavaScript you can join strings with a result of numeric evaluation like " + 3/2 + 128 + " this.");
-			var age = 4;
-			console.log(age);			
+			//echo("Hello World!");
+			//console.log("Foo, bar.");
+			//console.log(16 / 2 * (5 + 3));
+			//console.log("This is a string " + "concatenation");
+			//console.log("In JavaScript you can join strings with a result of numeric evaluation like " + 3/2 + 128 + " this.");
+			//var age = 4;
+			//console.log(age);
+			
+			
+			// let is a variable that is limited in scope
+			// var defines a variable globally that can be accessed anywhere
+
+var b = 10;
+	
+function letTest() {
+	let a=5;
+	console.log(a+b);
+}
+
+function letTest2() {
+	let a=10;
+	console.log(a+b);			
+}
+
+letTest();
+letTest2();
+
+
+for (i = 0; i < 5; i++) {
+		  var colorWell = document.getElementById('main');
+    colorWell.style.color = "blue";
+}
+			
  </script>
 </body>
 </html>
