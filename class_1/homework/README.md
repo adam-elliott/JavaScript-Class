@@ -1,2 +1,0 @@
-1. (11 pts) Create two github repositories for the projects you want to work on. First project should be easy one, that you think you can complete by the end of the course. The second should be the project you want to do, but you don't think you have enough time or resources to complete in eight weeks.
-2. (7 pts) Using [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) find out what day was July 4, 1776.
