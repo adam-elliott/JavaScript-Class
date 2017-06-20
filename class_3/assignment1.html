@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+ <script src="helper.js"></script>
+</head>
+<body>
+ <div id="main">
+
+ </div>
+ <script>
+
+				let monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+		  ];
+		
+   let userMonth = new Date();
+			userMonth.setMonth(prompt("Enter the month as 1-12") - 1);
+			document.getElementById("main").innerHTML = monthNames[(userMonth.getMonth())];
+
+ </script>
+</body>
+</html>
