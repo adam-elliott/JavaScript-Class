@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+ <script src="helper.js"></script>
+</head>
+<body>
+ <div id="main">
+
+ </div>
+ <script>
+	
+// Prompt user for birthday information
+let birthMonth = prompt("What month were you born? (1-12)");
+let birthDay = prompt("What day were you born? (1-31)");
+let birthYear = prompt("What year were you born? YYYY");
+
+//Pass user input to variable
+let birthDate = new Date();
+if(birthDay<10) {
+birthDay='0'+birthDay
+}
+if(birthMonth<10) {
+birthMonth='0'+(birthMonth -= 1)
+}
+birthDate.setDate(birthDay);
+birthDate.setMonth(birthMonth);
+birthDate.setYear(birthYear);
+console.log(birthDate);
+
+		
+// Define today's date as a variable
+let today = new Date();
+let dd = today.getDate();
+let mm = today.getMonth()+1; //January is 0!
+let yyyy = today.getFullYear();
+if(dd<10) {
+dd='0'+dd
+}
+if(mm<10) {
+mm='0'+mm
+}
+
+today.setDate(dd);
+today.setMonth(mm);
+today.setYear(yyyy);
+console.log(today);
+
+//Calculate difference in ms
+let timeDiff = Math.abs(today.getTime() - birthDate.getTime());
+
+//Divide to get days from ms
+let dayDifference = Math.ceil(timeDiff / (1000 * 3600 * 24));
+console.log(dayDifference);
+
+document.getElementById("main").innerHTML = "You have been alive for "+dayDifference+" days!";
+
+
+ </script>
+</body>
+</html>
