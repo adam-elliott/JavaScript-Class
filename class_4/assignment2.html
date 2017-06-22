@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+ <script src="helper.js"></script>
+</head>
+<body>
+ <div id="main">
+
+ </div>
+ <script>
+	
+function isPrime(i) {
+   // If i is less than 2 then by definition it cannot be prime.
+   if (i < 2) {return false}
+
+   // Now check every whole number from 2 to the square root of i. If any of these divides i exactly, i cannot be prime.
+   for (var n = 2; n <= Math.sqrt(i); n++) {
+      if (i % n == 0) {return false}
+   }
+			return true;
+}
+
+for(i=0; i<101; i++) {
+	echo(i + " " + isPrime(i));
+}
+
+ </script>
+</body>
+</html>
