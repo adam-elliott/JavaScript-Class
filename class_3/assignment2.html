@@ -16,16 +16,16 @@ let x = prompt("Pick a number!");
 
 //Test integer for multiples
 if (x % 3 == 0 && x % 5 == 0){
-		document.getElementById("main").innerHTML = "FizzBuzz";
+		echo("FizzBuzz");
 }
 else if (x % 3 == 0 && x % 5 != 0){
-		document.getElementById("main").innerHTML = "Fizz";
+		echo("Fizz");
 }
 else if (x % 3 != 0 && x % 5 == 0){
-		document.getElementById("main").innerHTML = "Buzz";
+		echo("Buzz");
 }
 else{
-  document.getElementById("main").innerHTML = x;
+  echo(x);
 }
  </script>
 </body>
