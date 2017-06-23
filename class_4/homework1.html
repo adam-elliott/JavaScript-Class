@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+ <script src="helper.js"></script>
+</head>
+<body>
+ <div id="main">
+
+ </div>
+ <script>
+	
+function isPalindrome(myString) {
+	let removeChar = myString.replace(/[^A-Z0-9]/ig, "").toLowerCase();
+	let checkPalindrome = removeChar.split('').reverse().join('');
+	if(removeChar === checkPalindrome) {
+		echo(myString + " is a Palindrome.");
+		}	else {
+			echo(myString + " is not a Palindrome.")
+		}
+}
+
+isPalindrome(prompt("Type a word to see if it is a palindrome."));
+//isPalindrome("'Oh who was it I saw, oh who?'");
+//isPalindrome("'Madam'");
+
+
+ </script>
+</body>
+</html>

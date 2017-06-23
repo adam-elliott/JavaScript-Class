@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+ <script src="helper.js"></script>
+</head>
+<body>
+ <div id="main">
+
+ </div>
+ <script>
+
+	
+function doMath(a,b) {
+	let myResult = 0;	
+	for(n=0; n<a; n++) {
+		myResult += b;
+	}
+	echo(myResult);
+}
+
+let a = prompt("First number:");
+a = parseInt(a);
+let b = prompt("Second number:");
+b = parseInt(b);
+
+doMath(a,b);
+
+
+ </script>
+</body>
+</html>
