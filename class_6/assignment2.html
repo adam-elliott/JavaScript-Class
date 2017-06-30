@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+
+</head>
+<body>
+ <div id="main">
+
+ </div>
+<script>
+
+
+let inpArray = [1, 2, 2, 3, 4, 2, 2, 4, 4];
+
+
+function findDups (x) {
+	let undupArray = [];
+	for (let i=0; i<x.length; i++) {
+	
+	let currentArray = inpArray[i];
+	let currentArray2 = inpArray[i+1];
+	
+	if (currentArray != currentArray2) {
+		undupArray.push(currentArray);
+	}
+	}
+	return undupArray;
+}
+
+
+
+//2. (11 pts) Write a function that takes an array as an argument and returns the array that has only a single item from the sequential duplicates.
+//```javascript
+//// Assuming the function is defined above:
+//let inpArray = [1, 2, 2, 3, 4, 2, 2, 4];
+//let undupArray = clearDups(inpArray);
+//console.log(undupArray); // Should output Array [1, 2, 3, 4, 2, 4]
+//```
+
+
+
+
+</script>
+</body>
+</html>
