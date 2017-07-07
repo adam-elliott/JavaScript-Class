@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+ <meta charset="UTF-8">
+ <title>A sample page</title>
+ <script src="helper.js"></script>
+</head>
+<body>
+ <div id="main">
+
+ </div>
+ <script>
+		
+
+
+		
+	// Get name
+	let userName = prompt("What is your first name?");
+	
+	// Get birthday
+	let userBirthday = new Date();
+	let getBirthmonth = prompt("What is your birth month? MM");
+	userBirthday.setMonth((getBirthmonth -1));
+	userBirthday.setDate(prompt("What is your birth day? DD"));
+	userBirthday.setYear(prompt("What is your birth year? YY"));
+	
+function dateDiffInYears(userBirthday) {
+	let today = new Date();
+	var ynew = today.getFullYear();
+	var mnew = today.getMonth();
+	var dnew = today.getDate();
+	var yold = userBirthday.getFullYear();
+	var mold = userBirthday.getMonth();
+	var dold = userBirthday.getDate();
+	var diff = ynew - yold;
+	if (mold > mnew) diff--;
+	else {
+					if (mold == mnew) {
+									if (dold > dnew) diff--;
+					}
+	}
+	
+if (diff < 13 ) {
+	alert('You are not old enough to sign up for an account.');
+	
+} else {
+	getEmail();
+}
+			
+}
+
+dateDiffInYears(userBirthday);
+								
+function getEmail() {	
+// Get user email
+let userEmail = prompt("What is your e-mail address?");
+
+if (userEmail.search('@') != -1) {
+		getPassword();
+} else {
+	alert("Your e-mail address is not valid, please try again.")
+		getEmail();
+}
+return userEmail;
+}
+	
+function getPassword() {	
+// Get password
+let userPassword = prompt("Choose a password");
+let userPassword2 = prompt("Re-enter password");
+
+	if (userPassword == userPassword2) {
+			let user = new User(userName, userBirthday, userPassword, userEmail);
+	} else {
+			alert("Your passwords did not match. Please try again.");
+			getPassword();
+	}
+	return userPassword;
+}
+	
+// Define user object constructor
+function User(name, birthday, password, email) {
+                        this.name = name;
+                        this.birthday = new Date();
+                        this.password = "";
+                        this.email = "";                        
+}
+
+//1. With the separate prompts ask user to enter name, email, birth day and then password twice. Do simple validation for email and prompt again unless input contains @ symbol. If passwords do not match, ask again 
+//until they do. If user age is less than 13 years, display "To register one must be 13 years or older". Otherwise, using constructor function create an object with user details. Display "Successfully created 
+//account for " and show entered account information.
+
+
+			
+ </script>
+</body>
+</html>
