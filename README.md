@@ -1,4 +1,4 @@
-Course material and assignemnts for JavaScript class
+Course material and assignments for JavaScript class
 ====================================================
 
 See [course outline](OUTLINE.md).
