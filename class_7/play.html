@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>Meal Planning App | An Adam Elliott Production</title>
+			<meta name="description" content="An interactive tool to assist with building weekly meal plans.">
+			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+			
+			<!--jQuery CDN-->
+			<script
+				src="https://code.jquery.com/jquery-3.2.1.min.js"
+				integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+				crossorigin="anonymous"></script>
+			
+			<!--Bootstrap CDN-->
+			<link rel="stylesheet"
+				  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+				  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+				  crossorigin="anonymous">
+			<link rel="stylesheet"
+				  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+				  integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+					integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+					crossorigin="anonymous"></script>
+ 
+ <style type="text/css">
+	body {
+		background: #F9F9F9;
+	}
+	
+	#main {
+		padding:40px;
+		margin:0 auto;
+	}
+	table#mealGrid {
+		margin:0 auto;
+		border-radius: 10px;
+		background:#fff;
+	}
+	
+	.plate {
+		padding:20px;
+		margin:0 auto;
+		border-radius: 10px;
+		background:#fff;
+		max-width:200px;
+		border:1px solid black;
+	}
+	
+	table#mealGrid td, table#mealGrid th {
+		border:1px solid #f3f3f3;
+		width:320px;
+		height:100px;
+		text-align: center;
+		border-radius: 10px;
+		padding: 20px;
+	}
+	
+	table#mealGrid th {
+		width:80px;
+		height:30px;
+	}
+	
+	.mealSlot {
+		outline: 1px dashed #849cc7;
+		outline-offset: -15px;
+		-moz-outline-radius: 10px;
+	}
+
+	.mealSlot:hover {
+		outline: 1px dashed blue;
+		
+	}
+	
+	div.meal {
+		clear:both;
+		padding:8px 8px;
+		text-align: center;
+		min-width:60px;
+		margin:5px;
+		
+		border:2px solid #000;
+		background-color: ;
+		border-radius: 5px;
+		display:inline-block;
+	}
+	
+	#meals {
+		position:fixed;
+		left:0px;
+		bottom:0px;
+		right:0px;
+		padding:40px;
+		background-color:#E5E5E5;
+		max-height: 500px;
+		overflow-x: scroll;
+		
+	}
+	
+	#meals button {
+		
+	}
+	
+ </style>
+ 
+</head>
+<body>
+ <div id="main">
+		<div id="meal1" class="meal" draggable="true" ondragstart="drag(event)" contenteditable="true" ondblclick=removeMeal2(event);></div>
+	</div>
+ 
+ 
+ 
+ <script>
+	
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}	
+	
+let mealCount = 2;
+
+
+	
+function addMeal() {
+	var newMeal = document.createElement('div');
+	newMeal.id = 'meal'+ mealCount;
+	newMeal.className = 'meal';
+	newMeal.setAttribute("draggable", "true");
+	newMeal.setAttribute("ondragstart", "drag(event)");
+	newMeal.setAttribute("contenteditable", "true");
+	newMeal.setAttribute("ondblclick", "removeMeal2(event)");
+	newMeal.style.transform = "rotate("+(mealCount/2)+"deg)";
+	document.getElementById('meal'+(mealCount-1)).appendChild(newMeal);
+	newMeal.style.borderColor = getRandomColor();
+	mealCount++;
+}
+
+function removeMeal() {
+	var elem = document.getElementById("meal" + (mealCount - 1));
+	console.log(elem);
+    elem.parentNode.removeChild(elem);
+    mealCount --;
+}
+
+function BuildMeal() {
+	//
+}
+
+function removeMeal2(ev) {
+	ev.target.remove();
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+//setInterval(makeColors,2000);
+
+function makeColors(int) {
+for (i=0; i<int; i++) {
+	addMeal();
+}
+}
+
+makeColors(prompt("How many?"));
+ </script>
+
+</body>
+</html>
