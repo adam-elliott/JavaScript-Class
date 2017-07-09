@@ -10,36 +10,6 @@
 
  </div>
  <script>
-// Define user object constructor
-function User(name, birthday, password, email) {
-	this.name = name;
-	this.birthday = birthday;
-	this.password = password;
-	this.email = email;                        
-}
-
-// Define user object parameters		
-function createUser(){
-	// Get name
-	let userName = prompt("What is your first name?");
-	
-	// Get birthday
-	let userBirthday = getBirthday();
-	
-	// Get email
-	let userEmail = getEmail();
-	
-	// Get password
-	let userPass = getPassword();
-	
-	//Create user
-	let user = new User(userName, userBirthday, userPass, userEmail);
-	echo("Successfully created account for: " + " Username: " + user.name + "," + " Birthday: " + user.birthday + "," + " E-mail: "  + user.email + "," + " Password: " + user.password + ".")
-}
-
-createUser();
-
-
 // User Account Logic
 function getBirthday() {
 	let userBirthday = new Date();
@@ -92,6 +62,35 @@ function getPassword() {
 			getPassword();
 	}
 }
+
+// Define user object constructor
+function User(name, birthday, password, email) {
+	this.name = name;
+	this.birthday = birthday;
+	this.password = password;
+	this.email = email;                        
+}
+
+// Define user object parameters		
+function createUser(){
+	// Get name
+	let userName = prompt("What is your first name?");
+	
+	// Get birthday
+	let userBirthday = getBirthday();
+	
+	// Get email
+	let userEmail = getEmail();
+	
+	// Get password
+	let userPass = getPassword();
+	
+	//Create user
+	let user = new User(userName, userBirthday, userPass, userEmail);
+	echo("Successfully created account for: " + " Username: " + user.name + "," + " Birthday: " + user.birthday + "," + " E-mail: "  + user.email + "," + " Password: " + user.password + ".")
+}
+
+createUser();
  </script>
 </body>
 </html>
