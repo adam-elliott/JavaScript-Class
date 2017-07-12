@@ -6,3 +6,6 @@ Assignments
 Homework
 ========
 1. (11 pts) Create an object that models sample.html (i.e. the object should contain all the details about the html, tags, attributes, content and etc.).
+
+document.children[0].children[1].children[0].children[0].innerText = "This."
+document.querySelector('.headline’).style.color = “red";
