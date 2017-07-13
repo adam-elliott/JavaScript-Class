@@ -102,7 +102,38 @@
         </div>
     </div>
     <script>
+        
+        
+        
+        
+
+        
     (function () {
+        //1. (5 pts) Add a script to gallery.html that sets title attribute for each image with the value matching its alt text.
+        let img = document.querySelectorAll('img');
+        for (let i=0; i<img.length; i++){
+            let imgAlt = img[i].getAttribute("alt");
+            img[i].setAttribute('title',imgAlt);
+        }
+        
+        //2. (5 pts) Add a script that sets the current date for the date in gallery.html
+        let today = new Date();
+        document.children[0].children[1].children[0].children[1].childNodes[6].textContent = ": " + today;
+        
+        //3. (3 pts) Add a script to gallery.html that removes the hr element.
+        let hr = document.querySelectorAll('hr');
+        for (let i=0; i<hr.length; i++) {
+            hr[i].remove();
+        }
+
+        //for (let i=0; i<img.length; i++){
+        //    let imgAlt = img[i].getAttribute("alt");
+        //    img[i].setAttribute('title',imgAlt);
+        //    let newFig = document.createElement("figcaption"); 
+        //    let newContent = document.createTextNode(imgAlt); 
+        //    newFig.appendChild(newContent);
+        //    document.body.insertBefore(newFig, img[i]);
+        //}
 
     }) ();
     </script>
