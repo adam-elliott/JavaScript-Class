@@ -102,39 +102,39 @@
         </div>
     </div>
     <script>
-        
-        
-        
-        
-
-        
     (function () {
-        //1. (5 pts) Add a script to gallery.html that sets title attribute for each image with the value matching its alt text.
+        // Assignments
+        // 1. (5 pts) Add a script to gallery.html that sets title attribute for each image with the value matching its alt text.
         let img = document.querySelectorAll('img');
         for (let i=0; i<img.length; i++){
             let imgAlt = img[i].getAttribute("alt");
             img[i].setAttribute('title',imgAlt);
         }
         
-        //2. (5 pts) Add a script that sets the current date for the date in gallery.html
+        // 2. (5 pts) Add a script that sets the current date for the date in gallery.html
         let today = new Date();
         document.children[0].children[1].children[0].children[1].childNodes[6].textContent = ": " + today;
         
-        //3. (3 pts) Add a script to gallery.html that removes the hr element.
+        // 3. (3 pts) Add a script to gallery.html that removes the hr element.
         let hr = document.querySelectorAll('hr');
         for (let i=0; i<hr.length; i++) {
             hr[i].remove();
         }
 
-        //for (let i=0; i<img.length; i++){
-        //    let imgAlt = img[i].getAttribute("alt");
-        //    img[i].setAttribute('title',imgAlt);
-        //    let newFig = document.createElement("figcaption"); 
-        //    let newContent = document.createTextNode(imgAlt); 
-        //    newFig.appendChild(newContent);
-        //    document.body.insertBefore(newFig, img[i]);
-        //}
-
+        // Homework
+        // 1. Create figcaption element for each image in gallery.html with text content matching the image alt text.
+        let fig = document.getElementsByTagName('figure');
+        for (let i=0; i<fig.length; i++){
+            let imgAlt = img[i].getAttribute("alt");
+            let newCap = document.createElement("figcaption");
+            let newContent = document.createTextNode(imgAlt); 
+            newCap.appendChild(newContent);
+            fig[i].appendChild(newCap);
+        }
+        
+        // 2. Add a script to gallery.html that dynamically updates the image count at the header (i.e. if one adds additional img in the html source, the number will update accordingly).
+        let imgCount = document.querySelectorAll('p')[0].childNodes[2];
+        imgCount.textContent = ": " + img.length;
     }) ();
     </script>
 </body>
