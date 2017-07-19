@@ -22,6 +22,10 @@
   .tab-body {
     padding: 1.5rem;
   }
+  
+  .show {
+    display:block;
+  }
   </style>
 </head>
 
@@ -123,9 +127,57 @@ navigation">
     </div>
   </div>
   <script>
-  (function() {
+    function showModal(){
+      document.querySelector(".modal").style.display = "block";
+    }
+    
+    function hideModal(){
+      document.querySelector(".modal").style.display = "none";
+    }
+    
+    function showNav(event){
+      event.preventDefault();
+      document.querySelector(".dropdown-menu").classList.toggle("show");
+      let dropdownItems = document.querySelectorAll(".dropdown-item");
+      for (let i=0; i<dropdownItems.length; i++){
+        dropdownItems[i].classList.toggle("show"); 
+      }
+    }
 
-  })();
+    
+     function tabActive(event){
+      //console.log(event);
+      let tabPanes = document.querySelectorAll('.tab-pane');
+      for(let i=0; i<tabList.length; i++) {
+        tabList[i].classList.remove("active");
+        tabPanes[i].classList.remove("active");
+      }
+      event.target.classList.toggle("active");
+      document.getElementById(event.target.text.toLowerCase()).classList.toggle("active");
+    }
+    
+    
+    
+    document.querySelector(".btn-lg").addEventListener("click", showModal);
+    
+    document.querySelector(".modal .close").addEventListener("click", hideModal);
+    document.querySelector(".modal .btn-secondary").addEventListener("click", hideModal);
+    
+    document.getElementById("dropdown01").addEventListener("mouseover", showNav);
+    document.querySelector(".dropdown-menu").addEventListener("mouseout", showNav);
+    //let dropDowns = document.querySelectorAll(".dropdown-item");
+    //for(let i=0; i<dropDowns.length; i++) {
+    //  dropDowns[i].addEventListener("mouseout", hideNav);
+    //}
+    
+    
+    let tabList = document.querySelectorAll('.nav .nav-link');
+    for(let i=0; i<tabList.length; i++) {
+      tabList[i].addEventListener("click", tabActive);
+    }
+    
+    
+  
   </script>
 </body>
 </html>
