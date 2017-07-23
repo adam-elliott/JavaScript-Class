@@ -136,7 +136,7 @@ navigation">
   </div>
   <script>
   
-
+ (function() {
     // 1. Modal timeout
     function showModal(){
       document.querySelector(".modal").style.display = "block";
@@ -184,9 +184,10 @@ navigation">
     function stopSlideshow() {
       clearInterval(slideshowId);
     }
+    
     document.querySelector(".btn-lg").addEventListener("click", stopSlideshow);
   
-  
+   })();
   
   </script>
 </body>
