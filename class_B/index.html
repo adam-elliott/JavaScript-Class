@@ -135,9 +135,59 @@ navigation">
     </div>
   </div>
   <script>
-  (function() {
+  
 
-  })();
+    // 1. Modal timeout
+    function showModal(){
+      document.querySelector(".modal").style.display = "block";
+    }
+    
+    function hideModal(){
+      document.querySelector(".modal").style.display = "none";
+    }
+    
+    //setTimeout(showModal, 7000);
+    document.querySelector(".modal .close").addEventListener("click", hideModal);
+    document.querySelector(".modal .btn-secondary").addEventListener("click", hideModal);
+    
+    // 2. function next() {
+    function nextSlide(){
+    let activeSlide = document.querySelector(".carousel-item.active");
+    let nextSlide = activeSlide.nextElementSibling || activeSlide.parentElement.firstElementChild;
+    activeSlide.classList.remove("active");
+    nextSlide.classList.add("active");
+    
+    let activeArrow = document.querySelector(".carousel-indicators .active");
+    let nextArrow = activeArrow.nextElementSibling || activeArrow.parentElement.firstElementChild;
+    activeArrow.classList.remove("active");
+    nextArrow.classList.add("active");
+    }
+    
+    function prevSlide(){
+    let activeSlide = document.querySelector(".carousel-item.active");
+    let prevSlide = activeSlide.previousElementSibling || activeSlide.parentElement.lastElementChild;
+    activeSlide.classList.remove("active");
+    prevSlide.classList.add("active");
+    
+    let activeArrow = document.querySelector(".carousel-indicators .active");
+    let prevArrow = activeArrow.previousElementSibling || activeArrow.parentElement.lastElementChild;
+    activeArrow.classList.remove("active");
+    prevArrow.classList.add("active");
+    }   
+    
+    document.querySelector(".carousel-control-next").addEventListener("click", function() {stopSlideshow(); nextSlide();});
+    document.querySelector(".carousel-control-prev").addEventListener("click", function() {stopSlideshow(); prevSlide();});
+    
+    // 3. setInterval and clearInterval
+    var slideshowId;
+    slideshowId = setInterval(nextSlide, 2000);
+    function stopSlideshow() {
+      clearInterval(slideshowId);
+    }
+    document.querySelector(".btn-lg").addEventListener("click", stopSlideshow);
+  
+  
+  
   </script>
 </body>
 </html>
