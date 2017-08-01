@@ -11,8 +11,9 @@ if (id) {
    if (window === this) {
       return new $(id);
    }
-   this.e = document.querySelector(id);
+   this.e = document.querySelectorAll(id);
    return this;
+   
 } else {
    return about;
 }
@@ -21,31 +22,36 @@ if (id) {
 // Methods    
 $.prototype = {
   click: function (event) {
-     this.e.addEventListener("click", event);
-     return this;
+    for (let i=0; i<this.e.length; i++){
+    this.e[i].addEventListener("click", event);
+   }
+   return this;
   },
   hover: function (event) {
-     this.e.addEventListener("mouseover", event);
+     this.e[0].addEventListener("mouseover", event);
      return this;
   },          
   hide: function () {
-     this.e.style.display = 'none';
+     this.e[0].style.display = 'none';
      return this;
   },
   show: function () {
-     this.e.style.display = 'inherit';
+     this.e[0].style.display = 'inherit';
      return this;
   },
   addClass: function (event) {
-     this.e.classList.add(event);
+     this.e[0].classList.add(event);
      return this;
   },
   removeClass: function (event) {
-     this.e.classList.remove(event);
+     this.e[0].classList.remove(event);
      return this;
   },
   toggleClass: function (event) {
-      this.e.classList.toggle(event);
+      this.e[0].classList.toggle(event);
       return this;
   }  
 };
+
+//for (let node of nodesList){  
+//}
