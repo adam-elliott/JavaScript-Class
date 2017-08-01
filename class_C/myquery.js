@@ -50,7 +50,11 @@ $.prototype = {
   toggleClass: function (event) {
       this.e[0].classList.toggle(event);
       return this;
-  }  
+  },
+  attr : function (event) {
+   this.e[0].getAttribute(event);
+   return this;
+  }
 };
 
 //for (let node of nodesList){  
