@@ -11,7 +11,11 @@ if (id) {
    if (window === this) {
       return new $(id);
    }
-   this.e = document.querySelectorAll(id);
+   if (typeof(id) == "object") {
+      this.e = [id];
+   } else {
+         this.e = document.querySelectorAll(id);
+   }
    return this;
    
 } else {
@@ -52,8 +56,7 @@ $.prototype = {
       return this;
   },
   attr : function (event) {
-   this.e[0].getAttribute(event);
-   return this;
+   return this.e[0].getAttribute(event);
   }
 };
 
