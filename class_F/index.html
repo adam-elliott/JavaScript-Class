@@ -89,7 +89,9 @@
     </footer>
     <script>
       (function () {
-      
+        document.getElementById('grandparent').addEventListener('click', function() {console.log("grandparent was propogated.")},true);
+        document.getElementById('parent').addEventListener('click', function() {console.log("parent was propogated.")},true);
+        document.getElementById('child').addEventListener('click', function() {console.log("child was propogated.")});
       })();
     </script>
   </body>
