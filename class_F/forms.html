@@ -145,28 +145,35 @@
         
         submitButton.addEventListener("click", function() {submitForm(event)});
 
-        function submitForm(e) {
-          let user = document.querySelector("#username").value;
-          let email = document.querySelector("#email").value;
-          let terms = document.querySelector('input[type=checkbox]');
-          let password = document.querySelector("#password").value;
-          let password2 = document.querySelector("#password_confirm").value;
-
+        function submitForm(e) {          
+            let user = document.querySelector("#username").value;
+            let email = document.querySelector("#email").value;
+            let terms = document.querySelector('input[type=checkbox]');
+            let password = document.querySelector("#password").value;
+            let password2 = document.querySelector("#password_confirm").value;
+  
           function testUsername(u) {
+            if (u != ""){
             let re = /^[a-zA-Z0-9-_]+$/;
-            return re.test(u);            
+            return re.test(u);
+            }    
           }
-
+  
           function validateEmail(email) {
+            if (email != ""){
             let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
+            }
           }
           
           function testPassword(a,b) {
-            if (a === b) { return true} else
+            if (a != "" && a === b) {
+              let re = /^[a-zA-Z0-9-_]{4}+$/;
+              return re.test(a);   
+            } else
             {return false}          
           }
-
+  
           function checkAgree(c) {
             if (c.checked === true) {
               return true
@@ -174,10 +181,36 @@
             {return false}
           }
           
-          if (testUsername(user) === true && validateEmail(email) === true && testPassword(password,password2) === true && checkAgree(terms) === true ){
-            console.log("all good");
+          let errString = "";
+          
+          if (testUsername(user) === true) {
+            //continue;
+          } else {
+            errString += "Your username does not meet the requirements. ";
+          }
+          
+          if (validateEmail(email) === true) {
+            //continue;
+          } else {
+            errString += "Your e-mail is not valid. ";
+          }
+          
+          if (testPassword(password,password2) === true) {
+            //continue;
+          } else {
+            errString += "Your passwords either do not match or do not meet the requirements. ";
+          }
+          
+          if (checkAgree(terms) === true) {
+            //continue;
+          } else {
+            errString += "You must check the box to agree to the terms and conditions.";
+          }
+          
+          if (testUsername(user) === true && validateEmail(email) === true && testPassword(password,password2) === true && checkAgree(terms) === true ) {              
           } else {
             e.preventDefault();
+            alert(errString);
           }
         }
 
