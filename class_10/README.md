@@ -5,6 +5,5 @@ Assignments
 
 
 String.prototype.capitalize = function() {
-		let myString = this.charAt(0).toUpperCase() + this.slice(1);
-		return myString;
+		return this.charAt(0).toUpperCase() + this.slice(1);
 }
