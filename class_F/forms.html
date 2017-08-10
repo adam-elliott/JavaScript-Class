@@ -167,7 +167,7 @@
           }
           
           function testPassword(a,b) {
-            if (a != "" && a === b) {
+            if (a === b) {
               let re = /^[a-zA-Z0-9-_]{4}+$/;
               return re.test(a);   
             } else
@@ -186,25 +186,34 @@
           if (testUsername(user) === true) {
             //continue;
           } else {
+            
             errString += "Your username does not meet the requirements. ";
+            document.querySelector("#username").parentNode.classList.add("has-danger");
+            document.querySelector(".alert-danger").classList.remove("hide");
           }
           
           if (validateEmail(email) === true) {
             //continue;
           } else {
+            document.querySelector("#email").parentNode.classList.add("has-danger");
             errString += "Your e-mail is not valid. ";
+            document.querySelector(".alert-danger").classList.remove("hide");
           }
           
           if (testPassword(password,password2) === true) {
             //continue;
           } else {
             errString += "Your passwords either do not match or do not meet the requirements. ";
+            document.querySelector("#password").parentNode.classList.add("has-danger");
+            document.querySelector("#password_confirm").parentNode.classList.add("has-danger");
+            document.querySelector(".alert-danger").classList.remove("hide");
           }
           
           if (checkAgree(terms) === true) {
             //continue;
           } else {
             errString += "You must check the box to agree to the terms and conditions.";
+            document.querySelector(".alert-danger").classList.remove("hide");
           }
           
           if (testUsername(user) === true && validateEmail(email) === true && testPassword(password,password2) === true && checkAgree(terms) === true ) {              
